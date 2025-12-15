@@ -1,0 +1,9 @@
+*.pyc
+__pycache__
+.venv
+dist
+build
+*.egg-info
+run.bat
+file1.json
+file2.json

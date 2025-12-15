@@ -1,18 +1,22 @@
-from typing import Optional
 from .utils import load_data
-from .diff_calculator import calculate_diff
-from .diff_viewer import pretty_print_diff
+def generate_diff(file1, file2):
+    data1 = load_data(file1)
+    data2 = load_data(file2)
 
-def generate_diff(file_path1: str, file_path2: str) -> Optional[str]:
-    try:
-        old_data = load_data(file_path1)
-        new_data = load_data(file_path2)
+    keys = sorted(set(data1.keys()) | set(data2.keys()))
 
-        if old_data is None or new_data is None:
-            raise ValueError("Ошибка при чтении данных из файлов.")
+    result = []
+    for key in keys:
+        val1 = data1.get(key)
+        val2 = data2.get(key)
 
-        diff = calculate_diff(old_data, new_data)
-        return pretty_print_diff(diff)
-    except Exception as e:
-        print(f"Произошла ошибка: {e}")
-        return None
+        if val1 == val2:
+            result.append(f"    {key}: {val1}")
+        else:
+            if key in data1:
+                result.append(f"- {key}: {val1}")
+            if key in data2:
+                result.append(f"+ {key}: {val2}")
+
+    final_result = "{\n" + "\n".join(result) + "\n}"
+    return final_result

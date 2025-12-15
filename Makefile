@@ -1,2 +1,0 @@
-lint:
-    ruff check src
