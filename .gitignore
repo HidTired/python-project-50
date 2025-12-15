@@ -5,5 +5,3 @@ dist
 build
 *.egg-info
 run.bat
-file1.json
-file2.json
