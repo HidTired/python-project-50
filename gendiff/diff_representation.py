@@ -3,7 +3,7 @@ class DiffNode:
         self.key = key
         self.old_value = old_value
         self.new_value = new_value
-        self.action = action  # Возможные варианты: '+', '-', '=', '~'
+        self.action = action  
         self.children = children or []
 
     def append_child(self, child_node):

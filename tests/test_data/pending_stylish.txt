@@ -1,10 +1,10 @@
 {
     "common": {
-      "+ follow": false, // Правильно ставим тип bool
+      "+ follow": false, 
         "setting1": "Value 1",
-      "- setting2": 200, // Удалён
-      "- setting3": true, // Старый вариант
-      "+ setting3": null, // Новый вариант
+      "- setting2": 200, 
+      "- setting3": true, 
+      "+ setting3": null, 
       "+ setting4": "blah blah",
       "+ setting5": {
             "key5": "value5"

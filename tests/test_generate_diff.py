@@ -43,11 +43,9 @@ class TestGenerateDiff(unittest.TestCase):
         self.assertEqual(actual_output.strip(), expected_output.strip())
 
     def test_generate_diff_nested_json(self):
-        # Читаем ожидаемый вывод из файла pending_stylish.txt
         with open(self.pending_stylish_txt, 'r') as f:
             expected_output = f.read().strip()
             
-        # Выводим ожидаемый результат и реальный результат
         print("Expected output:")
         print(expected_output)
         print("\nActual output:")
@@ -57,11 +55,9 @@ class TestGenerateDiff(unittest.TestCase):
         self.assertEqual(actual_output.strip(), expected_output)
 
     def test_generate_diff_nested_yaml(self):
-        # Читаем ожидаемый вывод из файла pending_stylish.txt
         with open(self.pending_stylish_txt, 'r') as f:
             expected_output = f.read().strip()
             
-        # Выводим ожидаемый результат и реальный результат
         print("Expected output:")
         print(expected_output)
         print("\nActual output:")
