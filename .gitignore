@@ -5,3 +5,6 @@ dist
 build
 *.egg-info
 run.bat
+.coverage
+coverage.xml
+*.cast
