@@ -1,34 +1,28 @@
-from .diff_representation import DiffNode
-from .utils import load_data
-from .formatters.stylish import render_stylish
+from scripts.utils import load_data
+from formatters.stylish import render_stylish
 
 def generate_diff(file1, file2):
     data1 = load_data(file1)
     data2 = load_data(file2)
-
     root = build_diff_tree(data1, data2)
     return render_stylish(root)
 
 def build_diff_tree(data1, data2):
-    keys = sorted(set(data1.keys()) | set(data2.keys()))
-
-    root = DiffNode()
-    for key in keys:
-        val1 = data1.get(key)
-        val2 = data2.get(key)
-
+    diff = {}
+    all_keys = set(data1.keys()).union(data2.keys())
+    
+    for key in all_keys:
         if key not in data1:
-            node = DiffNode(key, None, val2, 'added')
+            diff[key] = {'type': 'added', 'new_value': data2[key]}
         elif key not in data2:
-            node = DiffNode(key, val1, None, 'deleted')
-        elif val1 == val2:
-            node = DiffNode(key, val1, val2, 'unchanged')
-        elif isinstance(val1, dict) and isinstance(val2, dict):
-            sub_root = build_diff_tree(val1, val2)
-            node = DiffNode(key, val1, val2, 'nested', sub_root.children)
+            diff[key] = {'type': 'removed', 'old_value': data1[key]}
+        elif data1[key] != data2[key]:
+            if isinstance(data1[key], dict) and isinstance(data2[key], dict):
+                nested_diff = build_diff_tree(data1[key], data2[key])
+                diff[key] = {'type': 'nested', 'children': nested_diff}
+            else:
+                diff[key] = {'type': 'changed', 'old_value': data1[key], 'new_value': data2[key]}
         else:
-            node = DiffNode(key, val1, val2, 'changed')
-
-        root.append_child(node)
-
-    return root
+            diff[key] = {'type': 'unchanged'}
+            
+    return diff
