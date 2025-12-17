@@ -1,36 +1,45 @@
-from pathlib import Path
-import unittest
-from gendiff.generate_diff import generate_diff
+import pytest
+from gendiff.scripts.generate_diff import generate_diff
+from gendiff.scripts.parser import extract_file_contents
 
 
-class TestGenerateDiff(unittest.TestCase):
-    def setUp(self):
-        base_dir = Path(__file__).parent.resolve()
-        self.file1_json = base_dir / 'test_data/file1.json'
-        self.file2_json = base_dir / 'test_data/file2.json'
-        self.file1_yaml = base_dir / 'test_data/file1.yml'
-        self.file2_yaml = base_dir / 'test_data/file2.yml'
-        self.pending_stylish = base_dir / 'test_data/pending_stylish'
+@pytest.mark.parametrize('file1,file2,expected', [
+    ('tests/test_data/file1.json',
+     'tests/test_data/file2.json',
+     'tests/test_data/styled_output.json'),
+    ('tests/test_data/file1.yaml',
+     'tests/test_data/file2.yaml',
+     'tests/test_data/styled_output.yaml'),
+])
+def test_generate_diff_styled(file1, file2, expected):
+    diff = generate_diff(file1, file2)
+    expected_output = extract_file_contents(expected).strip()
+    assert diff.strip() == expected_output
 
-    def test_generate_diff_flat_json(self):
-        expected_output = self.pending_stylish.read_text().strip()
-        actual_output = generate_diff(self.file1_json, self.file2_json)
-        self.assertEqual(actual_output.strip(), expected_output)
 
-    def test_generate_diff_flat_yaml(self):
-        expected_output = self.pending_stylish.read_text().strip()
-        actual_output = generate_diff(self.file1_yaml, self.file2_yaml)
-        self.assertEqual(actual_output.strip(), expected_output)
+@pytest.mark.parametrize('file1,file2,expected', [
+    ('tests/test_data/file1.json',
+    'tests/test_data/file2.json',
+    'tests/test_data/plain_output.txt'),
+    ('tests/test_data/file1.yaml',
+     'tests/test_data/file2.yaml',
+     'tests/test_data/plain_output.txt'),
+])
+def test_generate_diff_plain(file1, file2, expected):
+    diff = generate_diff(file1, file2, formatter="plain")
+    expected_output = extract_file_contents(expected).strip()
+    assert diff.strip() == expected_output
 
-    def test_generate_diff_nested_json(self):
-        expected_output = self.pending_stylish.read_text().strip()
-        actual_output = generate_diff(self.file1_json, self.file2_json)
-        self.assertEqual(actual_output.strip(), expected_output)
 
-    def test_generate_diff_nested_yaml(self):
-        expected_output = self.pending_stylish.read_text().strip()
-        actual_output = generate_diff(self.file1_yaml, self.file2_yaml)
-        self.assertEqual(actual_output.strip(), expected_output)
-
-if __name__ == "__main__":
-    unittest.main()
+@pytest.mark.parametrize('file1,file2,expected', [
+    ('tests/test_data/file1.json',
+    'tests/test_data/file2.json',
+    'tests/test_data/json_output.txt'),
+    ('tests/test_data/file1.yaml',
+     'tests/test_data/file2.yaml',
+     'tests/test_data/json_output.txt'),
+])
+def test_generate_diff_json(file1, file2, expected):
+    diff = generate_diff(file1, file2, formatter="json")
+    expected_output = extract_file_contents(expected).strip()
+    assert diff.strip() == expected_output
