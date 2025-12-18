@@ -15,6 +15,7 @@ def process_plain_item(item, path=''):
     key = item.get('name')
     action = item.get('action')
     cur_path = f"{path}.{key}" if path else key
+
     if action == 'nested':
         children = item.get('children') or []
         return process_plain_diff(children, cur_path)
@@ -22,20 +23,13 @@ def process_plain_item(item, path=''):
     new_val = format_value(item.get('new_value'))
     old_val = format_value(item.get('old_value'))
     
-
-    ADD_MSG = f" была добавлена с значением: {new_val}"
-    DEL_MSG = " была удалена"
-    MOD_MSG = f" обновлено. Было: {old_val}, стало: {new_val}"
-    NESTED_MSG = process_plain_diff(item.get('children'), cur_path)
-
     if action == 'added':
-        return f"Свойство '{cur_path}'{ADD_MSG}"
+        return f"Свойство '{cur_path}' было добавлено с значением: {new_val}"
     elif action == 'deleted':
-        return f"Свойство '{cur_path}'{DEL_MSG}"
+        return f"Свойство '{cur_path}' было удалено"
     elif action == 'modified':
-        return f"Свойство '{cur_path}'{MOD_MSG}"
-    elif action == 'nested':
-        return NESTED_MSG
+        return (f"Свойство '{cur_path}' обновлено. "
+                f"Было: {old_val}, стало: {new_val}")
     return ''
 
 
