@@ -7,10 +7,10 @@ from gendiff.scripts.parser import extract_file_contents
 @pytest.mark.parametrize('file1,file2,expected', [
     ('tests/test_data/file1.json',
      'tests/test_data/file2.json',
-     'tests/test_data/calculated_result_yaml.json'),
+     'tests/test_data/calculated_result_yaml.txt'),
     ('tests/test_data/file1.yaml',
      'tests/test_data/file2.yaml',
-     'tests/test_data/calculated_result_yaml.yaml'),
+     'tests/test_data/calculated_result_yaml.txt'),
 ])
 def test_generate_diff_styled(file1, file2, expected):
     diff = generate_diff(file1, file2)
