@@ -1,23 +1,12 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/HidTired/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/HidTired/python-project-50/actions)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=HidTired_python-project-50&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=HidTired_python-project-50)
 
 ## Пример использования пакета
 
 ### Запуск из командной строки:
-gendiff file1.json file2.json
 
 ### Использование как библиотеки:
-from gendiff import generate_diff
-
-diff = generate_diff('file1.json', 'file2.json')print(diff)
 
 ### Пример вывода:
-json{
-
-follow: falsehost: hexlet.io
-proxy: 123.234.53.22
-timeout: 50
-timeout: 20
-verbose: true
-}
