@@ -1,4 +1,5 @@
 import argparse
+
 from gendiff.scripts.generate_diff import generate_diff
 
 
@@ -15,7 +16,7 @@ def argument_parser():
     return arg_pars.parse_args()
 
 
-def run_script():
+def main():
     arguments = argument_parser()
     filepath_1 = arguments.first_file
     filepath_2 = arguments.second_file
