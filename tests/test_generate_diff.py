@@ -36,8 +36,8 @@ def test_generate_diff_plain(file1, file2, expected):
     ('tests/test_data/file1.json',
     'tests/test_data/file2.json',
     'tests/test_data/json_output.txt'),
-    ('tests/test_data/file1.yaml',
-     'tests/test_data/file2.yaml',
+    ('tests/test_data/file1.yml',
+     'tests/test_data/file2.yml',
      'tests/test_data/json_output.txt'),
 ])
 def test_generate_diff_json(file1, file2, expected):
