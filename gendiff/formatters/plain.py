@@ -18,7 +18,6 @@ def process_plain_item(item, path=''):
     old_val = format_value(item.get('old_value'))
     cur_path = f"{path}.{key}" if path else key
 
-
     ADD_MSG = f" была добавлена с значением: {new_val}"
     DEL_MSG = " была удалена"
     MOD_MSG = f" обновлено. Было: {old_val}, стало: {new_val}"

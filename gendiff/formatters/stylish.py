@@ -25,7 +25,8 @@ def stylish_diff_formatter(diff, level_indent=2):
         elif act == "added":        
             lines.append(f"{indent}{ADD_MARKER}{key}: {new_val}")
         elif act == "nested":        
-            nested_children = stylish_diff_formatter(entry.get("children"), level_indent+4)
+            nested_children = stylish_diff_formatter(entry.get("children"),
+             level_indent + 4)
             lines.append(f"{indent}{UNCHANGED_MARKER}{key}: {nested_children}")
             
     final_str = "\n".join(lines)
@@ -43,7 +44,9 @@ def format_value(val, level_indent=2):
         result_lines = []
         for k, v in val.items():
             formated_v = format_value(v, level_indent + 4)
-            result_lines.append(f"{inner_indent}{UNCHANGED_MARKER}{k}: {formated_v}")
+            result_lines.append(
+                f"{inner_indent}{UNCHANGED_MARKER}{k}: {formated_v}"
+                )
         result_str = "\n".join(result_lines)
         end_indent = SEPARATOR * (level_indent + 2)
         return f"{{\n{result_str}\n{end_indent}}}"

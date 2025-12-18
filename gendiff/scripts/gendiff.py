@@ -1,11 +1,18 @@
 import argparse
+
 from gendiff import generate_diff
 
+
 def argument_parser():
-    arg_pars = argparse.ArgumentParser(description="Генерация сравнения двух конфигурационных файлов.")
+    arg_pars = argparse.ArgumentParser(
+        description="Генерация сравнения двух конфигурационных файлов."
+        )
     arg_pars.add_argument('first_file', help="Первый файл для сравнения")
     arg_pars.add_argument('second_file', help="Второй файл для сравнения")
-    arg_pars.add_argument('-f', '--format', choices=['stylish', 'plain', 'json'], default='stylish', help="Выберите формат вывода результата")
+    arg_pars.add_argument('-f', '--format',
+                           choices=['stylish', 'plain', 'json'],
+                            default='stylish',
+                            help="Выберите формат вывода результата")
     return arg_pars.parse_args()
 
 
