@@ -20,7 +20,7 @@ def convert_to_data(content, ext):
     elif ext in ['yaml', 'yml']:
         return yaml.safe_load(content)
     else:
-        raise ValueError(f"Тип файла '{ext}' не поддерживается.")
+        raise ValueError(f"The file type '{ext}' is not supported.")
 
 
 def load_data_from_file(file_path):

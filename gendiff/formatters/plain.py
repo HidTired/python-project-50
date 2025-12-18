@@ -1,6 +1,6 @@
 def format_value(value):
     if isinstance(value, (dict, list)):   
-        return '[сложное значение]'
+        return '[complex value]'
     elif value is None:                   
         return 'null'
     elif isinstance(value, bool):         
@@ -29,7 +29,7 @@ def process_plain_item(item, path=''):
         return f"Property '{cur_path}' was removed"
     elif action == 'modified':
         return (f"Property '{cur_path}' was updated. "
-                f"From: {old_val}, to: {new_val}")
+                f"From {old_val} to {new_val}")
     return ''
 
 
