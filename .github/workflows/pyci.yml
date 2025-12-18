@@ -1,14 +1,25 @@
+name: Python CI
+
+on:
+  - push
+  - pull_request
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-      - name: Lint code
-        run: make lint
-      - name: Run tests
-        run: make test
-      - name: Generate coverage report
-        run: make test-coverage
+          pip install uv
+          make install
+      - name: Run linter and pytest
+        run: |
+          make check
+      - name: Run test coverage
+        run: |
+          make test-coverage
