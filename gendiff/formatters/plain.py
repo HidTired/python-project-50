@@ -22,14 +22,14 @@ def process_plain_item(item, path=''):
 
     new_val = format_value(item.get('new_value'))
     old_val = format_value(item.get('old_value'))
-    
+
     if action == 'added':
-        return f"Свойство '{cur_path}' было добавлено с значением: {new_val}"
+        return f"Property '{cur_path}' was added with value: {new_val}"
     elif action == 'deleted':
-        return f"Свойство '{cur_path}' было удалено"
+        return f"Property '{cur_path}' was removed"
     elif action == 'modified':
-        return (f"Свойство '{cur_path}' обновлено. "
-                f"Было: {old_val}, стало: {new_val}")
+        return (f"Property '{cur_path}' was updated. "
+                f"From: {old_val}, to: {new_val}")
     return ''
 
 
