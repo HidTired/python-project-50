@@ -14,9 +14,14 @@ def format_value(value):
 def process_plain_item(item, path=''):
     key = item.get('name')
     action = item.get('action')
+    cur_path = f"{path}.{key}" if path else key
+    if action == 'nested':
+        children = item.get('children') or []
+        return process_plain_diff(children, cur_path)
+
     new_val = format_value(item.get('new_value'))
     old_val = format_value(item.get('old_value'))
-    cur_path = f"{path}.{key}" if path else key
+    
 
     ADD_MSG = f" была добавлена с значением: {new_val}"
     DEL_MSG = " была удалена"
@@ -35,6 +40,8 @@ def process_plain_item(item, path=''):
 
 
 def process_plain_diff(diff, path=''):
+    if not diff:
+        return ''
     results = []
     for item in diff:
         processed_item = process_plain_item(item, path)
