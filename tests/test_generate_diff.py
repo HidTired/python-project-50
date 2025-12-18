@@ -7,10 +7,10 @@ from gendiff.scripts.parser import extract_file_contents
 @pytest.mark.parametrize('file1,file2,expected', [
     ('tests/test_data/file1.json',
      'tests/test_data/file2.json',
-     'tests/test_data/styled_output.json'),
+     'tests/test_data/calculated_result_yaml.json'),
     ('tests/test_data/file1.yaml',
      'tests/test_data/file2.yaml',
-     'tests/test_data/styled_output.yaml'),
+     'tests/test_data/calculated_result_yaml.yaml'),
 ])
 def test_generate_diff_styled(file1, file2, expected):
     diff = generate_diff(file1, file2)
@@ -21,10 +21,10 @@ def test_generate_diff_styled(file1, file2, expected):
 @pytest.mark.parametrize('file1,file2,expected', [
     ('tests/test_data/file1.json',
     'tests/test_data/file2.json',
-    'tests/test_data/plain_output.txt'),
+    'tests/test_data/calculated_result_plain.txt'),
     ('tests/test_data/file1.yaml',
      'tests/test_data/file2.yaml',
-     'tests/test_data/plain_output.txt'),
+     'tests/test_data/calculated_result_plain.txt'),
 ])
 def test_generate_diff_plain(file1, file2, expected):
     diff = generate_diff(file1, file2, formatter="plain")
@@ -35,10 +35,10 @@ def test_generate_diff_plain(file1, file2, expected):
 @pytest.mark.parametrize('file1,file2,expected', [
     ('tests/test_data/file1.json',
     'tests/test_data/file2.json',
-    'tests/test_data/json_output.txt'),
+    'tests/test_data/calculated_result_json_format.txt'),
     ('tests/test_data/file1.yml',
      'tests/test_data/file2.yml',
-     'tests/test_data/json_output.txt'),
+     'tests/test_data/calculated_result_json_format.txt'),
 ])
 def test_generate_diff_json(file1, file2, expected):
     diff = generate_diff(file1, file2, formatter="json")
