@@ -8,8 +8,8 @@ from gendiff.scripts.parser import extract_file_contents
     ('tests/test_data/file1.json',
      'tests/test_data/file2.json',
      'tests/test_data/calculated_result_yaml.txt'),
-    ('tests/test_data/file1.yaml',
-     'tests/test_data/file2.yaml',
+    ('tests/test_data/file1.yml',
+     'tests/test_data/file2.yml',
      'tests/test_data/calculated_result_yaml.txt'),
 ])
 def test_generate_diff_styled(file1, file2, expected):
@@ -22,8 +22,8 @@ def test_generate_diff_styled(file1, file2, expected):
     ('tests/test_data/file1.json',
     'tests/test_data/file2.json',
     'tests/test_data/calculated_result_plain.txt'),
-    ('tests/test_data/file1.yaml',
-     'tests/test_data/file2.yaml',
+    ('tests/test_data/file1.yml',
+     'tests/test_data/file2.yml',
      'tests/test_data/calculated_result_plain.txt'),
 ])
 def test_generate_diff_plain(file1, file2, expected):
