@@ -33,9 +33,12 @@ uv tool install dist/*.whl
 
 # Запуск:
 
+### 1
 Поместите два файла, которые вы хотите сравнить в папку tests/test_data.
 
+### 2
 Замените file1.json и file2.json на названия ваших файлов и воспользуйтесь командой:
+
 
 uv run gendiff tests/test_data/<file1> tests/test_data/<file2>
 
