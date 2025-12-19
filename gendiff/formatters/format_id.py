@@ -12,4 +12,4 @@ def format_id(diff, formatter):
         case 'json':
             return format_diff_json(diff)
         case _:
-            raise ValueError(f"Форматтер '{formatter}' не поддерживается.")
+            raise ValueError(f"Unsupported file formatter '{formatter}'")
