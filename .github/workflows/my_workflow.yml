@@ -23,7 +23,6 @@ jobs:
       - name: Run test coverage
         run: |
           make test-coverage
-
       - name: SonarQubeScan
         uses: SonarSource/sonarqube-scan-action@9ca4ff6011a476e4111e51666c2467a942aaa881
         env:
