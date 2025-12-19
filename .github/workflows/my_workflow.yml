@@ -34,4 +34,4 @@ jobs:
            -Dsonar.exclusions=tests/** 
            -Dsonar.python.coverage.reportPaths=coverage.xml 
            -Dsonar.projectKey=HidTired_python-project-50 
-           -Dsonar.organization=hidtired-organization
+           -Dsonar.organization=hidtired
