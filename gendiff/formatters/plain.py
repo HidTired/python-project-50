@@ -23,7 +23,7 @@ def process_plain_item(item, path=''):
     new_val = format_value(item.get('new_value'))
     old_val = format_value(item.get('old_value'))
 
-    if action == 'added':
+    if action == 'added':   
         return f"Property '{cur_path}' was added with value: {new_val}"
     elif action == 'deleted':
         return f"Property '{cur_path}' was removed"
