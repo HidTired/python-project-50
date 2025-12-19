@@ -41,17 +41,17 @@ uv run gendiff tests/test_data/<file1> tests/test_data/<file2>
 
 # Командные строки для вызова разных форматтеров:
 
-### Формат по умолчанию (stylish):
+## Формат по умолчанию (stylish):
 
 uv run gendiff tests/test_data/<file1> tests/test_data/<file2>  - указывайте не только названия файла, но и его формат
 
 
-### Формат JSON:
+## Формат JSON:
 uv run gendiff -f json tests/test_data/<file1> tests/test_data/<file2> - указывайте не только названия файла, но и его формат
 
 
 
-### Формат PLAIN:
+## Формат PLAIN:
 uv run gendiff -f plain tests/test_data/<file1> tests/test_data/<file2> - указывайте не только названия файла, но и его формат
 
 
