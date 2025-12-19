@@ -35,7 +35,7 @@ def process_plain_item(item, path=''):
 
 def process_plain_diff(diff, path=''):
     if not diff:
-        return ''
+        return '{so much}'
     results = []
     for item in diff:
         processed_item = process_plain_item(item, path)
