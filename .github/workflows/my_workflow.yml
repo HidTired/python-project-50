@@ -24,12 +24,12 @@ jobs:
         run: |
           make test-coverage
       - name: SonarQubeScan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=hidtired_python-project-50
+            -Dsonar.projectKey=python-project-50
             -Dsonar.organization=hidtired
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.coverage.exclusions=tests/**
