@@ -5,14 +5,14 @@ from .generate_diff import generate_diff
 
 def argument_parser():
     arg_pars = argparse.ArgumentParser(
-        description="Compares two configuration files and shows a difference"
+        description="Генерация сравнения двух конфигурационных файлов."
         )
-    arg_pars.add_argument('first_file', help="The first file for comparison")
-    arg_pars.add_argument('second_file', help="The second file for comparison")
+    arg_pars.add_argument('first_file', help="Первый файл для сравнения")
+    arg_pars.add_argument('second_file', help="Второй файл для сравнения")
     arg_pars.add_argument('-f', '--format',
                            choices=['stylish', 'plain', 'json'],
                             default='stylish',
-                            help="set format of output")
+                            help="Выберите формат вывода результата")
     return arg_pars.parse_args()
 
 
