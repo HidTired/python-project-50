@@ -40,7 +40,7 @@ uv tool install dist/*.whl
 Замените file1.json и file2.json на названия ваших файлов и воспользуйтесь командой:
 
 
-uv run gendiff tests/test_data/<file1> tests/test_data/<file2>
+uv run gendiff tests/test_data/file1 tests/test_data/file2 - указывайте не только названия файла, но и его формат
 
 
 ## Важно:
@@ -53,16 +53,16 @@ uv run gendiff tests/test_data/<file1> tests/test_data/<file2>
 
 ## Формат по умолчанию (stylish):
 
-uv run gendiff tests/test_data/<file1> tests/test_data/<file2>  - указывайте не только названия файла, но и его формат
+uv run gendiff tests/test_data/file1 tests/test_data/file2  - указывайте не только названия файла, но и его формат
 
 
 ## Формат JSON:
-uv run gendiff -f json tests/test_data/<file1> tests/test_data/<file2> - указывайте не только названия файла, но и его формат
+uv run gendiff -f json tests/test_data/file1 tests/test_data/file2 - указывайте не только названия файла, но и его формат
 
 
 
 ## Формат PLAIN:
-uv run gendiff -f plain tests/test_data/<file1> tests/test_data/<file2> - указывайте не только названия файла, но и его формат
+uv run gendiff -f plain tests/test_data/file1 tests/test_data/file2 - указывайте не только названия файла, но и его формат
 
 
 
