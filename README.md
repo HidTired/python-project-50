@@ -3,6 +3,8 @@
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=HidTired_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=HidTired_python-project-50)
 
+# gendiff - инструмент командной строки для поиска различий между двумя файлами
+
 ## Пример использования пакета
 
 # Клонируем репозиторий на ваше устройство:
@@ -28,8 +30,10 @@ uv tool install dist/*.whl
 
 # Запуск:
 
-Поместите два файла, которые вы хотите сравнить, в папку tests/test_data.
+Поместите два файла, которые вы хотите сравнить в папку tests/test_data.
+
 Замените file1.json и file2.json на названия ваших файлов и воспользуйтесь командой:
+
 uv run gendiff tests/test_data/<file1> tests/test_data/<file2>
 
 
