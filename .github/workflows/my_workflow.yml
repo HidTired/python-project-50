@@ -29,8 +29,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=HidTired_python-project-50
-            -Dsonar.organization=HidTired
+            -Dsonar.projectKey=hidtired_python-project-50
+            -Dsonar.organization=hidtired
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.coverage.exclusions=tests/**
             -Dsonar.exclusions=tests/**
