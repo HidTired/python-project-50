@@ -3,7 +3,7 @@
 
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=HidTired_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=HidTired_python-project-50)
 
-## gendiff()
+## gendiff
  Это утилита командной строки, предназначенная для сравнения двух конфигурационных файлов и отображения различий между ними.
  
   Она полезна разработчикам и администраторам для анализа изменений конфигурации, мониторинга состояния системы или отслеживания обновлений настроек приложений.
