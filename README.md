@@ -20,7 +20,7 @@
 
 ## Клонируем репозиторий на ваше устройство:
 
-git clone https://github.com/HidTired/python-project-50.git
+git clone git@github.com:https://github.com/HidTired/python-project-50.git
 
 ## Переходим в директорию проекта:
 
