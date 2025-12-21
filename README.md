@@ -78,5 +78,8 @@ uv run gendiff -f plain tests/test_data/file1 tests/test_data/file2
 
 
 # Демонстрация:
+## Cоздание, инициализация и подключение виртуального окружения
 [![asciicast](https://asciinema.org/a/dNSO2CIu2QdLVAScxrkHIh7ix.svg)](https://asciinema.org/a/dNSO2CIu2QdLVAScxrkHIh7ix)
+
+## Форматы
 [![asciicast](https://asciinema.org/a/mqyXgntnl0fBL9Pju9Nw8Hp2P.svg)](https://asciinema.org/a/mqyXgntnl0fBL9Pju9Nw8Hp2P)
